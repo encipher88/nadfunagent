@@ -13,7 +13,7 @@ This repo is designed to work with the following OpenClaw skills. Install them s
 
 ## What this repo contains
 
-- **SKILL.md** — Agent instructions (nadfun-autonomous-agent). Copied to `~/.openclaw/workspace/skills/nadfun-autonomous-agent/`.
+- **SKILL.md** — Agent instructions (nadfunagent). Copied to `~/.openclaw/workspace/skills/nadfunagent/`.
 - **trading/** — Scripts (buy-token.js, sell-token.js, check-pnl.js, execute-bonding-v2.js, etc.). Use as the nadfun-trading skill (copy `trading/` to skills and run `npm install`) or run from any directory with `NADFUN_ENV_PATH` and `POSITIONS_REPORT_PATH` set.
 - **scripts/** — Node.js helpers (check_positions.js, save_tokens.js, write_positions_report.js). Data path: `NADFUNAGENT_DATA_DIR`.
 
@@ -32,7 +32,7 @@ Scripts use `__dirname` or these env vars (no hardcoded skill paths). Run from r
 1. `cd trading && npm install`
 2. Create `.env` (or set `NADFUN_ENV_PATH`)
 3. Install skills: `clawhub install monad-development nadfun-trading nadfun-indexer nadfun-agent-api`
-4. Install agent: copy SKILL.md to `~/.openclaw/workspace/skills/nadfun-autonomous-agent/` or `clawhub install https://github.com/encipher88/nadfun-autonomous-agent.git`
+4. Install agent: copy SKILL.md to `~/.openclaw/workspace/skills/nadfunagent/` or `clawhub install nadfunagent`
 5. Run cycle: `cd trading && node execute-bonding-v2.js`
 
 No private keys or API keys are stored in the repo; all examples use placeholders. Contract addresses (LENS, routers, MMIND) are public on Monad.

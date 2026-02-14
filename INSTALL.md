@@ -57,13 +57,13 @@ See **DEPENDENCIES.md** for how these skills are used and how to use this repo's
 
 ```bash
 # Install from GitHub (recommended)
-clawhub install https://github.com/encipher88/nadfun-autonomous-agent.git
+clawhub install nadfunagent
 
 # Or manual installation
-git clone https://github.com/encipher88/nadfun-autonomous-agent.git
-cd nadfun-autonomous-agent
+git clone https://github.com/encipher88/nadfunagent.git
+cd nadfunagent
 # Copy SKILL.md to OpenClaw workspace
-cp SKILL.md ~/.openclaw/workspace/skills/nadfun-autonomous-agent/
+cp SKILL.md ~/.openclaw/workspace/skills/nadfunagent/
 ```
 
 ### Step 4: Start OpenClaw Gateway
@@ -138,7 +138,7 @@ export POSITIONS_REPORT_PATH=/home/user/myconfig/positions.json
 If you cloned the repository, install dependencies for trading scripts:
 
 ```bash
-cd nadfun-autonomous-agent/trading
+cd nadfunagent/trading
 npm install
 ```
 
@@ -157,7 +157,7 @@ chmod 600 .env
 openclaw chat
 
 # In chat, type:
-"Initialize nadfun-autonomous-agent"
+"Initialize nadfunagent"
 
 # The agent will ask for configuration:
 # - MMIND_TOKEN_ADDRESS
@@ -180,7 +180,7 @@ openclaw skill list | grep nadfun
 ```
 
 Should show:
-- nadfun-autonomous-agent
+- nadfunagent
 - nadfun-trading
 - nadfun-indexer
 - nadfun-agent-api
@@ -288,7 +288,7 @@ openclaw gateway status
 **Solution**:
 ```bash
 # Reinstall skills
-clawhub install nadfun-autonomous-agent --force
+clawhub install nadfunagent --force
 clawhub install nadfun-trading --force
 clawhub install nadfun-indexer --force
 clawhub install nadfun-agent-api --force

@@ -1,5 +1,5 @@
 ---
-name: nadfun-autonomous-agent
+name: nadfunagent
 description: Autonomous trading agent for Nad.fun that scans markets, analyzes tokens, executes trades, and distributes profits to MMIND token holders. Uses nadfun-trading, nadfun-indexer, and nadfun-agent-api skills.
 user-invocable: true
 argument-hint: [action] [options]

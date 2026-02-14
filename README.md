@@ -29,7 +29,7 @@ This agent autonomously:
 npm install -g openclaw
 
 # Install this agent from GitHub
-clawhub install https://github.com/encipher88/nadfunagent.git
+clawhub install nadfunagent
 ```
 
 #### Option 2: Manual Installation
@@ -211,7 +211,7 @@ For issues or questions:
 If you cloned or built the repo locally:
 
 ```bash
-cd nadfunagent-public
+cd nadfunagent
 git remote add origin https://github.com/encipher88/nadfunagent.git
 git branch -M main
 git push -u origin main
