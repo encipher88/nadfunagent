@@ -3,12 +3,15 @@
  * Check P&L for all positions and execute sells based on thresholds.
  * Uses nad.fun quote contract getAmountOut(token, balanceWei, false).
  * On revert, falls back to Agent API market price.
- * Reads entry price from /root/nadfunagent/positions_report.json (set by buy-token.js).
+ * Reads entry price from positions_report.json (set by buy-token.js). Path: POSITIONS_REPORT_PATH or $HOME/nadfunagent.
  * Sells automatically if P&L >= +5% (take profit) or <= -10% (stop loss).
  * Run: node check-pnl.js [--auto-sell] [--dry-run]
- * Requires: MONAD_PRIVATE_KEY, MONAD_RPC_URL in env or /root/nadfunagent/.env
+ * Requires: MONAD_PRIVATE_KEY, MONAD_RPC_URL in env or .env (NADFUN_ENV_PATH or $HOME/nadfunagent/.env)
  */
+const path = require('path');
+const os = require('os');
 const fs = require('fs').promises;
+const defaultDataDir = path.join(os.homedir(), 'nadfunagent');
 const { execSync } = require('child_process');
 const { createPublicClient, http, erc20Abi } = require('viem');
 const { privateKeyToAccount } = require('viem/accounts');
@@ -37,7 +40,7 @@ const lensAbi = [
 ];
 
 async function loadConfig() {
-  const envPath = process.env.NADFUN_ENV_PATH || '/root/nadfunagent/.env';
+  const envPath = process.env.NADFUN_ENV_PATH || path.join(defaultDataDir, '.env');
   try {
     const content = await fs.readFile(envPath, 'utf-8');
     const config = {};
@@ -60,7 +63,7 @@ async function main() {
   const rpcUrl = config.MONAD_RPC_URL || process.env.MONAD_RPC_URL || 'https://monad-mainnet.drpc.org';
 
   if (!privateKey) {
-    const envPath = process.env.NADFUN_ENV_PATH || '/root/nadfunagent/.env';
+    const envPath = process.env.NADFUN_ENV_PATH || path.join(defaultDataDir, '.env');
     console.error(`Set MONAD_PRIVATE_KEY in ${envPath} or MONAD_PRIVATE_KEY env variable`);
     process.exit(1);
   }
@@ -96,7 +99,7 @@ async function main() {
 
   let previousReport = null;
   try {
-    const reportPath = process.env.POSITIONS_REPORT_PATH || '/root/nadfunagent/positions_report.json';
+    const reportPath = process.env.POSITIONS_REPORT_PATH || path.join(defaultDataDir, 'positions_report.json');
     const raw = await fs.readFile(reportPath, 'utf-8');
     previousReport = JSON.parse(raw);
   } catch {

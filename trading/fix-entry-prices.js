@@ -9,9 +9,12 @@ const { privateKeyToAccount } = require('viem/accounts');
 const { monadMainnet } = require('./monad-chains');
 
 const API_URL = 'https://api.nadapp.net';
+const path = require('path');
+const os = require('os');
+const defaultDataDir = path.join(os.homedir(), 'nadfunagent');
 
 async function loadConfig() {
-  const envPath = process.env.NADFUN_ENV_PATH || '/root/nadfunagent/.env';
+  const envPath = process.env.NADFUN_ENV_PATH || path.join(defaultDataDir, '.env');
   try {
     const content = await fs.readFile(envPath, 'utf-8');
     const config = {};
@@ -31,7 +34,7 @@ async function main() {
   const rpcUrl = config.MONAD_RPC_URL || process.env.MONAD_RPC_URL || 'https://monad-mainnet.drpc.org';
 
   if (!privateKey) {
-    const envPath = process.env.NADFUN_ENV_PATH || '/root/nadfunagent/.env';
+    const envPath = process.env.NADFUN_ENV_PATH || path.join(defaultDataDir, '.env');
     console.error(`Set MONAD_PRIVATE_KEY in ${envPath} or MONAD_PRIVATE_KEY env variable`);
     process.exit(1);
   }

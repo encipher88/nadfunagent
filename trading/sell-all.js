@@ -2,9 +2,12 @@
 /**
  * Sell ALL token positions (bonding curve + DEX). Uses Agent API holdings + on-chain balance.
  * Run: node sell-all.js [--slippage 300] [--dry-run]
- * Requires: MONAD_PRIVATE_KEY in .env (NADFUN_ENV_PATH or /root/nadfunagent/.env), or NAD_PRIVATE_KEY for sell-token.js
+ * Requires: MONAD_PRIVATE_KEY in .env (NADFUN_ENV_PATH or $HOME/nadfunagent/.env), or NAD_PRIVATE_KEY for sell-token.js
  */
+const path = require('path');
+const os = require('os');
 const fs = require('fs').promises;
+const defaultDataDir = path.join(os.homedir(), 'nadfunagent');
 const { execSync } = require('child_process');
 const { createPublicClient, http, erc20Abi } = require('viem');
 const { privateKeyToAccount } = require('viem/accounts');
@@ -14,7 +17,7 @@ const API_URL = 'https://api.nadapp.net';
 const SKILL_DIR = __dirname;
 
 async function loadConfig() {
-  const envPath = process.env.NADFUN_ENV_PATH || '/root/nadfunagent/.env';
+  const envPath = process.env.NADFUN_ENV_PATH || path.join(defaultDataDir, '.env');
   try {
     const content = await fs.readFile(envPath, 'utf-8');
     const config = {};
@@ -40,7 +43,7 @@ async function main() {
   const rpcUrl = config.MONAD_RPC_URL || process.env.MONAD_RPC_URL || 'https://monad-mainnet.drpc.org';
 
   if (!privateKey) {
-    console.error('Set MONAD_PRIVATE_KEY in /root/nadfunagent/.env');
+    console.error('Set MONAD_PRIVATE_KEY in', path.join(defaultDataDir, '.env'), 'or NADFUN_ENV_PATH');
     process.exit(1);
   }
 

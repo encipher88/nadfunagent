@@ -194,7 +194,6 @@ async function main() {
 }
 
 async function recordEntryPrice(tokenAddress, entryValueMON, walletAddress, tokenSymbol) {
-  const reportPath = process.env.POSITIONS_REPORT_PATH || '/root/nadfunagent/positions_report.json';
   let report = { timestamp: new Date().toISOString(), wallet: walletAddress, cycle: 'buy_record', positionsCount: 0, positions: [], summary: {} };
   try {
     const existing = await fs.readFile(reportPath, 'utf-8');

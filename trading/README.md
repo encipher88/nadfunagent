@@ -9,7 +9,7 @@ cd trading
 npm install
 ```
 
-Create `.env` file (default: `/root/nadfunagent/.env`). You can use a different path by setting `NADFUN_ENV_PATH`:
+Create `.env` file (default: `$HOME/nadfunagent/.env`). You can use a different path by setting `NADFUN_ENV_PATH`:
 
 ```env
 MONAD_PRIVATE_KEY=0x...
@@ -18,8 +18,8 @@ MONAD_NETWORK=mainnet
 ```
 
 **Environment variables for custom paths:**
-- `NADFUN_ENV_PATH` — path to `.env` file (default: `/root/nadfunagent/.env`)
-- `POSITIONS_REPORT_PATH` — path to `positions_report.json` (default: `/root/nadfunagent/positions_report.json`)
+- `NADFUN_ENV_PATH` — path to `.env` file (default: `$HOME/nadfunagent/.env`)
+- `POSITIONS_REPORT_PATH` — path to `positions_report.json` (default: `$HOME/nadfunagent/positions_report.json`)
 
 **Example (custom paths):**
 ```bash
@@ -50,14 +50,14 @@ See `HOW_PNL_WORKS.md` and `ENTRY_PRICE_TRACKING.md` in this folder.
 ## Run full cycle (e.g. from cron)
 
 ```bash
-cd /path/to/nadfun-autonomous-agent-public/trading
+cd /path/to/nadfunagent/trading
 node execute-bonding-v2.js
 ```
 
 Or with env:
 
 ```bash
-NAD_PRIVATE_KEY=$(grep MONAD_PRIVATE_KEY /root/nadfunagent/.env | cut -d= -f2) node execute-bonding-v2.js
+NAD_PRIVATE_KEY=$(grep MONAD_PRIVATE_KEY $HOME/nadfunagent/.env | cut -d= -f2) node execute-bonding-v2.js
 ```
 
 ## LENS / Quote contract

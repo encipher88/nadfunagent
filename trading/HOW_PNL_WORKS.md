@@ -41,7 +41,7 @@ The cycle uses `check-pnl.js` (and `check-pnl.js --auto-sell`) for P&L, not API 
 
 ```bash
 # Check entry prices in report
-cat /root/nadfunagent/positions_report.json | jq '.positions[] | {symbol, entryValueMON, currentValueMON}'
+cat $HOME/nadfunagent/positions_report.json | jq '.positions[] | {symbol, entryValueMON, currentValueMON}'
 
 # Run P&L check from trading directory
 cd trading && node check-pnl.js

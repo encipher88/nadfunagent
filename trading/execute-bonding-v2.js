@@ -4,12 +4,15 @@ const { privateKeyToAccount } = require('viem/accounts');
 const { monadMainnet } = require('./monad-chains');
 const { exec } = require('child_process');
 const { promisify } = require('util');
+const path = require('path');
+const os = require('os');
 const fs = require('fs').promises;
 
 const execAsync = promisify(exec);
+const defaultDataDir = path.join(os.homedir(), 'nadfunagent');
 
 async function loadConfig() {
-  const envPath = process.env.NADFUN_ENV_PATH || '/root/nadfunagent/.env';
+  const envPath = process.env.NADFUN_ENV_PATH || path.join(defaultDataDir, '.env');
   const envContent = await fs.readFile(envPath, 'utf-8');
   
   const config = {};
