@@ -1,0 +1,46 @@
+# Environment files
+.env
+*.env
+.env.local
+.env.*.local
+
+# OpenClaw
+.openclaw/
+openclaw.json
+
+# Logs
+*.log
+logs/
+/tmp/openclaw/
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Data files
+found_tokens.json
+*.json.bak
+positions_report.json
+
+# Private keys
+*.key
+*.pem
+*_private_key*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
