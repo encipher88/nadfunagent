@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 /**
  * Write positions report JSON. Reads one JSON object from stdin and writes to
- * positions_report.json. Data dir: NADFUNAGENT_DATA_DIR or /root/nadfunagent.
+ * positions_report.json. Data dir: NADFUNAGENT_DATA_DIR or $HOME/nadfunagent.
  * Optional: POSITIONS_REPORT_PATH overrides the file path.
  * Required structure: { timestamp, wallet, cycle?, positionsCount?, positions[], summary? }
  * Usage: echo '{"timestamp":"...","wallet":"0x...","positions":[],"summary":{}}' | node write_positions_report.js
  */
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
-const DATA_DIR = process.env.NADFUNAGENT_DATA_DIR || '/root/nadfunagent';
+const DATA_DIR = process.env.NADFUNAGENT_DATA_DIR || path.join(os.homedir(), 'nadfunagent');
 const FILE_PATH = process.env.POSITIONS_REPORT_PATH || path.join(DATA_DIR, 'positions_report.json');
 
 async function main() {

@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 /**
  * Append found tokens to found_tokens.json. Reads token addresses (0x...) one per line from stdin.
- * Data dir: NADFUNAGENT_DATA_DIR env or /root/nadfunagent. Keeps last 100 scans.
+ * Data dir: NADFUNAGENT_DATA_DIR env or $HOME/nadfunagent. Keeps last 100 scans.
  * Usage: echo -e "0x...\n0x..." | node save_tokens.js
  */
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
-const DATA_DIR = process.env.NADFUNAGENT_DATA_DIR || '/root/nadfunagent';
+const DATA_DIR = process.env.NADFUNAGENT_DATA_DIR || path.join(os.homedir(), 'nadfunagent');
 const FILE_PATH = path.join(DATA_DIR, 'found_tokens.json');
 
 async function main() {

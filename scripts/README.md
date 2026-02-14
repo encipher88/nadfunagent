@@ -1,8 +1,8 @@
-# Scripts (Node.js) — nadfun-autonomous-agent
+# Scripts (Node.js) — nadfunagent
 
 All scripts are **Node.js** (no Python). Run from repo root or from the skill directory.
 
-**Data directory:** `NADFUNAGENT_DATA_DIR` (default `/root/nadfunagent`). Override report path with `POSITIONS_REPORT_PATH`.
+**Data directory:** `NADFUNAGENT_DATA_DIR` (default `$HOME/nadfunagent`). Override report path with `POSITIONS_REPORT_PATH`.
 
 | Script | Purpose |
 |--------|---------|

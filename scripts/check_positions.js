@@ -2,14 +2,15 @@
 /**
  * Output current positions (holdings) as JSON for the trading agent.
  * Uses Agent API holdings endpoint.
- * Reads: NADFUNAGENT_DATA_DIR (default /root/nadfunagent) for .env; or NADFUN_ENV_PATH for .env path.
+ * Reads: NADFUNAGENT_DATA_DIR (default $HOME/nadfunagent) for .env; or NADFUN_ENV_PATH for .env path.
  * Usage: node check_positions.js [0xWalletAddress]
  * Output: JSON to stdout with wallet, positions[], source.
  */
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
-const DATA_DIR = process.env.NADFUNAGENT_DATA_DIR || '/root/nadfunagent';
+const DATA_DIR = process.env.NADFUNAGENT_DATA_DIR || path.join(os.homedir(), 'nadfunagent');
 const ENV_PATH = process.env.NADFUN_ENV_PATH || path.join(DATA_DIR, '.env');
 
 function loadEnv() {
