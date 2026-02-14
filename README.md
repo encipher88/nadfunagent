@@ -29,19 +29,19 @@ This agent autonomously:
 npm install -g openclaw
 
 # Install this agent from GitHub
-clawhub install https://github.com/encipher88/nadfun-autonomous-agent.git
+clawhub install https://github.com/encipher88/nadfunagent.git
 ```
 
 #### Option 2: Manual Installation
 
 ```bash
 # Clone repository
-git clone https://github.com/encipher88/nadfun-autonomous-agent.git
-cd nadfun-autonomous-agent
+git clone https://github.com/encipher88/nadfunagent.git
+cd nadfunagent
 
 # Copy SKILL.md to OpenClaw workspace
-mkdir -p ~/.openclaw/workspace/skills/nadfun-autonomous-agent
-cp SKILL.md ~/.openclaw/workspace/skills/nadfun-autonomous-agent/
+mkdir -p ~/.openclaw/workspace/skills/nadfunagent
+cp SKILL.md ~/.openclaw/workspace/skills/nadfunagent/
 ```
 
 ### Required Skills
@@ -187,7 +187,7 @@ This project is part of the Moltiverse Hackathon. Contributions welcome!
 ## 📞 Support
 
 For issues or questions:
-- Open an issue on GitHub: https://github.com/encipher88/nadfun-autonomous-agent/issues
+- Open an issue on GitHub: https://github.com/encipher88/nadfunagent/issues
 
 ## 🎯 Hackathon Submission
 
@@ -211,8 +211,8 @@ For issues or questions:
 If you cloned or built the repo locally:
 
 ```bash
-cd nadfun-autonomous-agent-public
-git remote add origin https://github.com/encipher88/nadfun-autonomous-agent.git
+cd nadfunagent-public
+git remote add origin https://github.com/encipher88/nadfunagent.git
 git branch -M main
 git push -u origin main
 ```
