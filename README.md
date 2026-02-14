@@ -2,9 +2,14 @@
 
 Autonomous trading agent for Nad.fun that scans markets, analyzes tokens, executes trades, and distributes profits to MMIND token holders.
 
-## 🎯 DEMO VIDEO
 
-https://youtu.be/-xF6XDUYtQ0
+## 🎬 Demo Video
+
+[![Watch the demo](https://img.youtube.com/vi/-xF6XDUYtQ0/maxresdefault.jpg)](https://youtu.be/-xF6XDUYtQ0)
+
+*Click the thumbnail to watch on YouTube.*
+
+
 
 ## 🎯 Project Overview
 
