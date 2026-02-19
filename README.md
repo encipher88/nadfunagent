@@ -211,23 +211,4 @@ For issues or questions:
 
 **Token Contract**: `0xCe122fd90bBD10A3fb297647A3ad21eC1Ea27777` (MMIND)
 
-**Demo Video**: [Link to demo video - TODO: Add after creating]
-
----
-
-## Pushing to GitHub
-
-If you cloned or built the repo locally:
-
-```bash
-cd nadfunagent
-git remote add origin https://github.com/encipher88/nadfunagent.git
-git branch -M main
-git push -u origin main
-```
-
-If the GitHub repo already exists with a different history, you can force-push: `git push -u origin main --force` (this overwrites the remote history).
-
----
-
 Built for Moltiverse Hackathon 2026
